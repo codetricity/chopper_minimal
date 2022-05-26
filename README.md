@@ -46,3 +46,9 @@ Errors are resolved.
 ## Additional Information
 
 https://github.com/codetricity/theta_bloc_chop
+
+## Drill
+
+1. create new project. Add chopper package
+1. add `build_runner` and `chopper_generator` to dev dependencies
+1. create `services` folder under lib.  Add `name_service.dart`
