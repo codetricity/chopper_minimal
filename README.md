@@ -52,3 +52,26 @@ https://github.com/codetricity/theta_bloc_chop
 1. create new project. Add chopper package
 1. add `build_runner` and `chopper_generator` to dev dependencies
 1. create `services` folder under lib.  Add `name_service.dart`
+
+### service file
+
+1. import chopper
+1. part 'name_service.chopper.dart` - will be in red
+1. @ChopperApi(
+    1. `baseUrl: '/endpoint'`
+    1. `headers: {'Content-Type': 'application/json;charset-utf8'})`
+1. abstract class NameService extends ChopperService
+1. inside of class `@Get()`
+1. `Future<Response> nameOfMethod()`
+1. `static NameService create() {return $_NameService()}`
+1. run `dart run build_runner build`
+1. `name_service.chopper.dart` will automatically be created and all errors will be resolved
+
+### using service
+
+1. create a new instance of `ChopperClient` with:
+    1. `baseUrl`
+    1. 'services: [NameService.create()]`
+1. assign variable to instance of `ChopperClient.getService<NameService>()`
+1. get response with `await nameOfVariableGetService.nameOfMethod()`
+1. handle errors
