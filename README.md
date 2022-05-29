@@ -49,26 +49,32 @@ https://github.com/codetricity/theta_bloc_chop
 
 ## Drill
 
-1. create new project. Add chopper package
+1. create new dart project. Add chopper package
 1. add `build_runner` and `chopper_generator` to dev dependencies
-1. create `services` folder under lib.  Add `name_service.dart`
+1. create `services` folder under lib.  Add `name_service.dart`.  For example
+`placeholder_service`
 
 ### service file
 
 1. import chopper
 1. part 'name_service.chopper.dart` - will be in red
+    * this is the same name as the file you are editing with the word `chopper` in it.
+1. go to https://jsonplaceholder.typicode.com
+    * go to the resources section and look for the `/posts` endpoint.  Use `/posts` as
+    the endpoint in this example.
 1. @ChopperApi(
     1. `baseUrl: '/endpoint'`
-    1. `headers: {'Content-Type': 'application/json;charset-utf8'})`
 1. abstract class NameService extends ChopperService
 1. inside of class `@Get()`
+    1. `headers: {'Content-Type': 'application/json;charset-utf8'})`
 1. `Future<Response> nameOfMethod()`
-1. `static NameService create() {return $_NameService()}`
+1. `static NameService create() {return _$NameService()}`
 1. run `dart run build_runner build`
 1. `name_service.chopper.dart` will automatically be created and all errors will be resolved
 
 ### using service
 
+1. go to main file inside of `bin/`.  For example, it may be called, `bin/chopper_drill.dart`
 1. create a new instance of `ChopperClient` with:
     1. `baseUrl`
     1. 'services: [NameService.create()]`
