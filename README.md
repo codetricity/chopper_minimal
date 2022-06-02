@@ -76,8 +76,10 @@ https://github.com/codetricity/theta_bloc_chop
 
 1. go to main file inside of `bin/`.  For example, it may be called, `bin/chopper_drill.dart`
 1. create a new instance of `ChopperClient` with:
-    1. `baseUrl`
-    1. 'services: [NameService.create()]`
+    1. `baseUrl`  NOTE: there is no slash `/` at the end of the baseUrl
+    1. 'services: [NameService.create()]`  NOTE: this is a list and must be in square brackets.
 1. assign variable to instance of `ChopperClient.getService<NameService>()`
-1. get response with `await nameOfVariableGetService.nameOfMethod()`
+1. get response with `await nameOfVariableGetService.nameOfMethod()` and assign to
+variable `response`
+1. print `response.body`
 1. handle errors
